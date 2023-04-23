@@ -3,12 +3,19 @@ import { styles } from '../theme/appTheme'
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useEffect } from 'react';
 
+/* interface RouterParams {
+    id: number,
+    nombre: string
+} */
+
 interface Props extends NativeStackScreenProps<any, any> { };
+
 export const PersonaScreen = ({ navigation, route }: Props) => {
-    const params = route.params;
+    const params = route.params as RouterParams;
+
     useEffect(() => {
         navigation.setOptions({
-            title: params!.nombre
+            title: params.nombre
         })
     }, [])
 
