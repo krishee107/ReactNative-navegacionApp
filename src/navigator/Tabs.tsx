@@ -7,6 +7,7 @@ import { Tab3Screen } from '../screens/Tab3Screen';
 import { StackNavigator } from './StackNavigator';
 import { colores } from '../theme/appTheme';
 import { Text, Platform } from 'react-native';
+import { TopTabNavigator } from './TopTabNavigator';
 
 
 export const Tabs = () => {
@@ -45,7 +46,7 @@ const TabsAndroid = () => { //Para android se usa el material bottom tab navigat
             }
         >
             <BottomTabAndroid.Screen name="Tab1Screen" component={Tab1Screen} options={{ title: 'Tab1' }} />
-            <BottomTabAndroid.Screen name="Tab2Screen" component={Tab2Screen} options={{ title: 'Tab2' }} />
+            <BottomTabAndroid.Screen name="Tab2Screen" component={TopTabNavigator} options={{ title: 'Tab2' }} />
             <BottomTabAndroid.Screen name="Tab3Screen" component={Tab3Screen} options={{ title: 'Tab3' }} />
             <BottomTabAndroid.Screen name="StackNavigator" component={StackNavigator} options={{ title: 'Stack' }} />
         </BottomTabAndroid.Navigator>
