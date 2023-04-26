@@ -66,6 +66,7 @@ export const TabsIOS = () => { // Para ios se usa el bottom tab navigator y se u
                 style: {
                     borderTopColor: 'red', //Color de la linea de abajo
                     borderTopWidth: 0, //Quita la linea de abajo
+                    elevation: 0 //Quita la sombra
                 },
                 labelStyle: {
                     fontSize: 15
