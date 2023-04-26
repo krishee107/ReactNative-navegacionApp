@@ -8,6 +8,7 @@ import { StackNavigator } from './StackNavigator';
 import { colores } from '../theme/appTheme';
 import { Text, Platform } from 'react-native';
 import { TopTabNavigator } from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export const Tabs = () => {
@@ -28,19 +29,19 @@ const TabsAndroid = () => { //Para android se usa el material bottom tab navigat
                     let iconName: string = '';
                     switch (route.name) { //Pone el icono dependiendo de la ruta
                         case 'Tab1Screen':
-                            iconName = 'T1';
+                            iconName = 'bandage-outline';
                             break;
                         case 'Tab2Screen':
-                            iconName = 'T2';
+                            iconName = 'basketball-outline';
                             break;
                         case 'Tab3Screen':
-                            iconName = 'T3';
+                            iconName = 'beaker-outline';
                             break;
                         case 'StackNavigator':
-                            iconName = 'ST';
+                            iconName = 'book-outline';
                             break;
                     }
-                    return <Text style={{ color }}>{iconName}</Text>
+                    return <Icon size={20} color="#900" name={iconName} />
                 }
             })
             }

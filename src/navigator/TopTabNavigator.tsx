@@ -6,6 +6,7 @@ import { AlbumsScreen } from '../screens/AlbumsScreen';
 import { LogBox, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colores } from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 LogBox.ignoreLogs(['Sending...']);
 
@@ -36,16 +37,16 @@ export const TopTabNavigator = () => {
                     let iconName: string = '';
                     switch (route.name) { //Pone el icono dependiendo de la ruta
                         case 'Chat':
-                            iconName = 'Ch';
+                            iconName = 'chatbox-ellipses-outline';
                             break;
                         case 'Contact':
-                            iconName = 'Co';
+                            iconName = 'people-outline';
                             break;
                         case 'Albums':
-                            iconName = 'Al';
+                            iconName = 'albums-outline';
                             break;
                     }
-                    return <Text style={{ color }}>{iconName}</Text>
+                    return <Icon size={20} color="#900" name={iconName} />
                 }
             })
             }
