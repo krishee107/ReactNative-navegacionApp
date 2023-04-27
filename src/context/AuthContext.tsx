@@ -21,6 +21,7 @@ export interface AuthContextProps {
     signIn: () => void;
     changeFavIcon: (iconName: string) => void;
     logout: () => void;
+    changeUsername: (username: string) => void;
 }
 
 //Crear el contexto
@@ -46,6 +47,9 @@ export const AuthProvider = ({ children }: any) => {
     const logout = () => {
         dispatch({ type: 'logout' });
     }
+    const changeUsername = (username: string) => {
+        dispatch({ type: 'changeUsername', payload: username });
+    }
 
     return (
         <AuthContext.Provider value={{
@@ -53,6 +57,7 @@ export const AuthProvider = ({ children }: any) => {
             signIn,
             changeFavIcon,
             logout,
+            changeUsername,
         }}>
             {/* Todo lo que esté dentro del provider, podrá tener acceso al estado */}
             {children}
