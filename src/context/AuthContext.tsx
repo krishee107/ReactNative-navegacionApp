@@ -1,4 +1,5 @@
-import React, { createContext } from 'react';
+import React, { createContext, useReducer } from 'react';
+import { authReducer } from './AuthReducer';
 
 // Definir cómo luce o qué información tendré aquí
 export interface AuthState {
@@ -25,10 +26,15 @@ export const AuthContext = createContext({} as AuthContextProps);
 
 // Componente proveedor del estado
 export const AuthProvider = ({ children }: any) => {
+    //authState es el estado actual
+    //dispatch es la función que me permite disparar acciones hacia el reducer
+    //Reducer genera un nuevo estado
+    //AuthInitialState es el estado inicial
+    const [authState, dispatch] = useReducer(authReducer, authInitialState);
 
     return (
         <AuthContext.Provider value={{
-            authState: authInitialState,
+            authState,
             signIn: () => { }
         }}>
             {/* Todo lo que esté dentro del provider, podrá tener acceso al estado */}
