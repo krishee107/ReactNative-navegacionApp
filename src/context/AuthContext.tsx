@@ -32,10 +32,16 @@ export const AuthProvider = ({ children }: any) => {
     //AuthInitialState es el estado inicial
     const [authState, dispatch] = useReducer(authReducer, authInitialState);
 
+    // la funcion de signIn es la que se encarga de disparar la acción hacia el reducer para que genere un nuevo estado y lo retorne a authState 
+    const signIn() => {
+        dispatch({ type: 'signIn' });
+    }
+
+
     return (
         <AuthContext.Provider value={{
             authState,
-            signIn: () => { }
+            signIn
         }}>
             {/* Todo lo que esté dentro del provider, podrá tener acceso al estado */}
             {children}
