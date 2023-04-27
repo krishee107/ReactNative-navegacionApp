@@ -1,13 +1,15 @@
 import React, { useContext } from 'react'
 import { Text, View } from 'react-native'
-import { styles } from '../theme/appTheme'
+import { colores, styles } from '../theme/appTheme'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { AuthContext } from '../context/AuthContext'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const SettingsScreen = () => {
   const insets = useSafeAreaInsets();
 
   const { authState } = useContext(AuthContext);
+  const { favoriteIcon } = authState;
 
 
   return (
@@ -17,6 +19,19 @@ export const SettingsScreen = () => {
     }}>
       <Text style={styles.title}>Settings screen</Text>
       <Text>{JSON.stringify(authState, null, 4)} </Text>
+
+      {
+        favoriteIcon ?
+          <Icon
+            name={favoriteIcon as string}
+            size={150}
+            color={colores.primary}
+          />
+          :
+          <Text>Icono no seleccionado</Text>
+      }
+
+
     </View>
   )
 }

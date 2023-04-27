@@ -41,7 +41,7 @@ const TabsAndroid = () => { //Para android se usa el material bottom tab navigat
                             iconName = 'book-outline';
                             break;
                     }
-                    return <Icon size={20} color="#900" name={iconName} />
+                    return <Icon size={20} color="#900" iconName={iconName} />
                 }
             })
             }

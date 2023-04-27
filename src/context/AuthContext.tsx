@@ -19,6 +19,7 @@ export const authInitialState: AuthState = {
 export interface AuthContextProps {
     authState: AuthState;
     signIn: () => void;
+    changeFavIcon: (iconName: string) => void;
 }
 
 //Crear el contexto
@@ -37,11 +38,16 @@ export const AuthProvider = ({ children }: any) => {
         dispatch({ type: 'signIn' });
     }
 
+    const changeFavIcon = (iconName: string) => {
+        dispatch({ type: 'changeFavIcon', payload: iconName });
+    }
+
 
     return (
         <AuthContext.Provider value={{
             authState,
-            signIn
+            signIn,
+            changeFavIcon,
         }}>
             {/* Todo lo que esté dentro del provider, podrá tener acceso al estado */}
             {children}
